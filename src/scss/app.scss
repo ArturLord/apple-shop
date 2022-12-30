@@ -22,7 +22,21 @@ body {
   &__title {
     margin: 40px 15px;
     font-size: 40px;
+  }
 
+  &__error {
+    margin: 80px auto;
+    width: 590px;
+    text-align: center;
+
+    h2 {
+      font-size: 34px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 22px;
+    }
   }
 
   &__items {
@@ -189,6 +203,17 @@ body {
           path:first-of-type {
             display: none;
           }
+        }
+
+        &:disabled {
+          opacity: 0.4;
+        }
+
+        &:hover {
+          background-color: transparent;
+        }
+        &:active {
+          transform: none;
         }
       }
 

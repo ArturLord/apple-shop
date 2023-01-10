@@ -88,7 +88,7 @@ const Home: React.FC = () => {
   const apples = items.map((obj: any) => (
       <PizzaBlock {...obj} />
   ));
-  const skeletons = [...new Array(6)].map((_, index) => <Loader key={index} />);
+  const skeletons = [...new Array(4)].map((_, index) => <Loader key={index} />);
 
   return (
     <div>
@@ -100,7 +100,7 @@ const Home: React.FC = () => {
         />
         <Sort />
       </div>
-      <h2 className="content__title">Все пиццы</h2>
+      <h2 className="content__title">Купить Iphone</h2>
       {status === "error" ? (
         <div className="content__error">
           <h2>Ошибка</h2>

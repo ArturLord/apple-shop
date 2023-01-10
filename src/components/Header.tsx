@@ -24,10 +24,10 @@ const Header: React.FC = () => {
       <div className="container">
         <Link to="/">
         <div className="header__logo">
-          <img width="38" src="./img/pizza-logo.svg" alt="Pizza logo" />
+          <img width="38" src="./img/logo_header.jfif" alt="Pizza logo" />
           <div>
-            <h1>React Pizza</h1>
-            <p>самая вкусная пицца во вселенной</p>
+            <h1>I-Shop Point</h1>
+            <p>Оригинальная техника Apple по низким ценам</p>
           </div>
         </div>
         </Link>

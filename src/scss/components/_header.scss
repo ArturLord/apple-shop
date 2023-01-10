@@ -1,6 +1,7 @@
 @import "../variables";
 
 .header {
+  background-color: #181B1E;
   border-bottom: 1px solid $gray-line;
   padding: 40px 0;
 
@@ -14,6 +15,7 @@
 
       .header__cart {
         margin-top: 20px;
+        
       }
     }
   }
@@ -26,7 +28,7 @@
     }
 
     h1 {
-      color: #181818;
+      color: #d1d0d0;
       font-size: 24px;
       letter-spacing: 1%;
       text-transform: uppercase;
@@ -34,7 +36,7 @@
     }
 
     p {
-      color: #7b7b7b;
+      color: #dbcccc;
     }
   }
 }

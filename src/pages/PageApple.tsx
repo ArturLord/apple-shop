@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const PageApple: React.FC = () => {
   const [apple, setApple] = React.useState<{
@@ -36,6 +37,11 @@ const PageApple: React.FC = () => {
       <img src={apple.imageUrl} alt="asd" />
       <h2>{apple.title}</h2>
       <h4>{apple.price} руб</h4>
+      <Link to="/notfound">
+        <button className="button button--outline button--add">
+          <span>Назад</span>
+        </button>
+      </Link>
     </div>
   );
 };

@@ -7,11 +7,11 @@ type CategoriesProps = {
 
 const categories = [
   "Все",
-  "Мясные",
-  "Вегетарианская",
-  "Гриль",
-  "Острые",
-  "Закрытые",
+  "Iphone 14",
+  "Iphone 13",
+  "Iphone 12",
+  "Iphone 11",
+  "Iphone SE",
 ];
 
 const Categories: React.FC<CategoriesProps> = ({

@@ -1,0 +1,17 @@
+[33mcommit d2115e85549f7c2261bc4fd0dc0919ccd2ff2a9b[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: artur <qwer@mail.ru>
+Date:   Fri Dec 30 10:20:38 2022 +0700
+
+    app80
+
+[33mcommit a628648dd0814da796226c42ab22264f78fb180f[m
+Author: artur <qwer@mail.ru>
+Date:   Fri Dec 23 10:54:01 2022 +0700
+
+    до начала redux
+
+[33mcommit 9cf3f9f67a2272df4e567037cbf59b625703d70e[m
+Author: artur <qwer@mail.ru>
+Date:   Wed Dec 21 11:20:26 2022 +0700
+
+    Initialize project using Create React App

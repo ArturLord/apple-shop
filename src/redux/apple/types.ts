@@ -1,5 +1,6 @@
 export type AppleItems = {
   title: string;
+  colors: string;
   price: number;
   imageUrl: string;
   id: string;

@@ -1,5 +1,7 @@
 import React from "react";
 
+import styles from '../scss/components/categories.module.scss';
+
 type CategoriesProps = {
   valueCategory: number;
   onClickCategory: (i: number) => void;
@@ -19,13 +21,13 @@ const Categories: React.FC<CategoriesProps> = ({
   valueCategory,
 }) => {
   return (
-    <div className="categories">
+    <div className={styles.categories}>
       <ul>
         {categories.map((item, i) => (
           <li
             key={i}
             onClick={() => onClickCategory(i)}
-            className={valueCategory === i ? "active" : ""}
+            className={valueCategory === i ? styles.active : ""}
           >
             {item}
           </li>

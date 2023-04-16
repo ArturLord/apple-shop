@@ -1,5 +1,6 @@
 export type CartItem = {
     title: string;
+    // colors: string;
     price: number;
     type: string;
     size: number;

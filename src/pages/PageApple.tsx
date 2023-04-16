@@ -1,47 +1,146 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
-const PageApple: React.FC = () => {
-  const [apple, setApple] = React.useState<{
-    imageUrl: string;
-    title: string;
-    price: number;
-  }>();
-  const { id } = useParams();
-  const navigate = useNavigate();
+import { Link, useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { addItem } from "../redux/cart/slice";
+// import { selectorCartItemById } from "../redux/cart/selectors";
+import { CartItem } from "../redux/cart/types";
+
+import styles from '../scss/components/page-apple.module.scss';
+import { isDisabled } from "@testing-library/user-event/dist/utils";
+
+
+const typeNames = [
+  "Золотистый",
+  "Темно-фиолетовый",
+  "Серебристый",
+  "Черный космос",
+  "Белый",
+  "Зеленый",
+  "Графитовый",
+  "Небесно-голубой",
+  "Фиолетовый",
+  "(PRODUCT) RED",
+  "Сияющая звезда",
+  "Розовый",
+  "Серый космос"
+];
+
+type AppleBlockProps = {
+  title: string;
+  colors: string;
+  price: number;
+  imageUrl: string;
+  id: string;
+  sizes: number[];
+  types: number[];
+};
+
+const PageApple: React.FC<AppleBlockProps> = ({
+  title,
+  colors,
+  price,
+  imageUrl,
+  id,
+  sizes,
+  types,
+}) => {
+  const dispatch = useDispatch();
+  // const cartItem = useSelector(selectorCartItemById(id));
+  const [activeType, setActiveType] = React.useState(-1);
+  const [activeSize, setActiveSize] = React.useState(-1);
+  // const addedCount = cartItem ? cartItem.count : 0;
+  const { userId } = useParams();
+  const [apple, setApple] = React.useState();
+  console.log(apple);
 
   React.useEffect(() => {
     async function fetchApple() {
       try {
         const { data } = await axios.get(
-          `https://63a305fb471b38b206038c10.mockapi.io/items/${id}`
+          `https://63a305fb471b38b206038c10.mockapi.io/items/${userId}`
         );
         setApple(data);
       } catch (error) {
-        alert("Error");
-        navigate("/");
+        alert("Ошибка");
       }
     }
 
     fetchApple();
   }, []);
 
+  const onClickAdd = () => {
+    const item: CartItem = {
+      title,
+      price,
+      imageUrl,
+      id,
+      type: typeNames[activeType],
+      size: sizes[activeSize],
+      count: 0,
+    };
+    dispatch(addItem(item));
+  };
+
   if (!apple) {
-    return <>"Загрузка"</>;
+    return <>'Загрузка'</>;
   }
 
   return (
-    <div className="container">
-      <img src={apple.imageUrl} alt="asd" />
-      <h2>{apple.title}</h2>
-      <h4>{apple.price} руб</h4>
-      <Link to="/notfound">
-        <button className="button button--outline button--add">
-          <span>Назад</span>
-        </button>
-      </Link>
+    <div className={styles.wrapperApple}>
+      <h1>{title} {sizes[0]} Gb {colors} </h1>
+      <div className={styles.cardApple}>
+        <img src={imageUrl} alt="apple" />
+        <div className={styles.itemOptions}>
+          <h2>{title} {sizes[0]} Gb {colors} </h2>
+          <div className={styles.itemH5}>Цвет</div>
+          <div className={styles.productColor}>
+            <ul>
+              {types.map((type) => (
+                <li
+                  key={type}
+                  onClick={() => setActiveType(type)}
+                  className={activeType === type ? styles.active : ""}
+                >
+                  {typeNames[type]}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className={styles.itemH5}>Объем памяти</div>
+          <div className={styles.productMemory}>
+            <ul>
+              {sizes.map((size, i) => (
+                <li
+                  key={size}
+                  onClick={() => setActiveSize(i)}
+                  className={activeSize === i ? styles.active : ""}
+                >
+                  {typeNames[size]}
+                  {size} Gb
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className={styles.productPrice}>
+            <div className={styles.productPrices}>
+              <h4>{price} руб</h4>
+              <p>Нашли дешевле? Снизим Цену!</p>
+            </div>
+            <Link to="/cart">
+              <button
+                onClick={onClickAdd}
+                className={styles.productButton}
+              >
+                <span>Купить</span>
+                {/* {addedCount > 0 ? <i>{addedCount}</i> : ""} */}
+              </button>
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

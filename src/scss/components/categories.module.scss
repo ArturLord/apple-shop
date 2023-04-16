@@ -1,0 +1,53 @@
+.categories {
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 15px;
+
+
+    li {
+      background-color: #f9f9f9;
+      padding: 12px 30px;
+      border-radius: 30px;
+      margin-right: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+      
+      &:hover {
+        background-color: darken(#f9f9f9, 3%);
+      }
+
+      &:active {
+        background-color: darken(#f9f9f9, 5%);
+      }
+
+      &.active {
+        background-color: #323232;
+        color: #fff;
+      }
+    }
+  }
+
+  @media (max-width: 544px) {
+    ul {
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+    padding: 0;
+
+    li {
+      margin: 0;
+      padding: 5 15px;
+      font-size: 10px;
+      text-align: center;
+    }
+    }
+  }
+  @media (max-width: 396px) {
+    ul {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    }
+  }
+}

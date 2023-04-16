@@ -1,0 +1,125 @@
+.appleBlock {
+  margin: 0 auto;
+  width: 320px;
+  text-align: center;
+  margin-bottom: 65px;
+  box-shadow: 0px 0px 15px 2px rgb(188, 188, 188);
+  padding: 15px;
+  border: 1px solid rgb(156, 156, 156);
+  border-radius: 10px;
+
+  .appleBlockImg {
+    width: 260px;
+    height: 260px;
+    transition: transform 0.4s ease;
+
+    &:hover {
+      transform: scale(1.04);
+    }
+  }
+
+  .appleBlockTitle {
+    // width: 260px;
+    font-size: 20px;
+    font-weight: 300;
+    // letter-spacing: 1%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .appleBlockBottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .appleBlockPrice {
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+    letter-spacing: 0.015em;
+  }
+
+  .appleButton {
+    background-color: #e3e3e3;
+    border-radius: 30px;
+    padding: 10px 20px;
+    min-width: 100px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    border: 1px solid transparent;
+
+    span {
+      color: #fb4c07;
+    }
+  
+    i,
+    span
+     {
+      transition: all 0.15s ease-in-out;
+    }
+  
+    &:hover {
+      opacity: 0.9;
+    }
+  
+    &:active {
+      background-color: darken(#c6c6c6, 12%);
+      transform: translateY(1px);
+    }
+  }
+
+  span {
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  &:hover {
+    i {
+      background-color: #fff;
+      color: #fe5f1e;
+    }
+  }
+
+  i {
+    display: inline-block;
+    border-radius: 30px;
+    background-color: #fe5f1e;
+    color: #fff;
+    font-weight: 600;
+    width: 22px;
+    height: 22px;
+    font-style: normal;
+    font-size: 13px;
+    line-height: 22px;
+    position: relative;
+    top: -1px;
+    left: 3px;
+  }
+}
+@media (max-width: 445px) {
+  .appleBlock {
+  width: 280px;
+  }
+}
+
+@media (max-width: 396px) {
+  .appleBlock {
+    width: 240px;
+
+    .appleBlockImg {
+      width: 180px;
+    }
+
+    .appleBlockBottom {
+      display: block;
+      .appleBlockPrice {
+        margin-bottom: 10px;
+      }
+    }
+    }
+}

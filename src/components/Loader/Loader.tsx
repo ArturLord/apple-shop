@@ -4,22 +4,18 @@ import ContentLoader from "react-content-loader"
 
 const Loader: React.FC = (props) => (
   <ContentLoader 
-  className="pizza-block"
     speed={2}
-    width={280}
-    height={465}
-    viewBox="0 0 280 465"
+    width={320}
+    height={425}
+    viewBox="0 0 400 560"
     backgroundColor="#f3f3f3"
     foregroundColor="#ecebeb"
     {...props}
   >
-    <rect x="0" y="279" rx="0" ry="0" width="210" height="43" /> 
-    <rect x="139" y="388" rx="0" ry="0" width="1" height="74" /> 
-    <rect x="0" y="5" rx="0" ry="0" width="208" height="251" /> 
-    <rect x="0" y="368" rx="41" ry="41" width="97" height="31" /> 
-    <rect x="114" y="368" rx="33" ry="33" width="95" height="31" /> 
-    <rect x="3" y="337" rx="0" ry="0" width="99" height="25" /> 
-    <rect x="112" y="337" rx="0" ry="0" width="96" height="20" />
+    <rect x="96" y="22" rx="20" ry="20" width="246" height="333" /> 
+    <rect x="67" y="388" rx="10" ry="10" width="304" height="63" /> 
+    <rect x="44" y="496" rx="10" ry="10" width="111" height="35" /> 
+    <rect x="242" y="484" rx="30" ry="30" width="154" height="52" />
   </ContentLoader>
 )
 

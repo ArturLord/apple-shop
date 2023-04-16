@@ -1,7 +1,29 @@
 .root {
     position: relative;
     left: 200px;
+
+
 }
+
+@media (max-width: 1388px) {
+    .root {
+        left: 7%;
+    }
+}
+
+@media (max-width: 1132px) {
+    .root {
+        left: 2%;
+    }
+}
+
+@media (max-width: 1021px) {
+    .root {
+        left: 0;
+        margin-top: 15px;
+    }
+}
+
 
 .input {
     border: 1px solid rgba(0, 0, 0, 0.1);

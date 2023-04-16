@@ -1,10 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 import { useSelector } from "react-redux";
-import {useNavigate } from "react-router-dom";
 
 import Categories from "../components/Categories";
 import Sort from "../components/Sort";
-import PizzaBlock from "../components/AppleCards/PizzaBlock";
+import AppleBlock from "../components/AppleCards/AppleBlock";
 import Loader from "../components/Loader/Loader";
 import Pagination from "../components/Pagination/Pagination";
 import { useAppDispatch } from "../redux/store";
@@ -13,11 +13,10 @@ import { selectorFilter } from "../redux/filter/selectors";
 import { fetchApples } from "../components/services/services";
 import { selectorApples } from "../redux/apple/selectors";
 
+import styles from "../scss/app.module.scss";
+
 const Home: React.FC = () => {
-  // const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  // const isSearch = React.useRef(false);
-  // const isMounted = React.useRef(false);
   const { items, status } = useSelector(selectorApples);
   const { categoryId, sort, currentPage, searchValue } =
     useSelector(selectorFilter);
@@ -47,67 +46,33 @@ const Home: React.FC = () => {
       })
     );
 
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
   };
-
-  // React.useEffect(() => {
-  //   if (isMounted.current) {
-  //     const params = {
-  //       categoryId: categoryId > 0 ? categoryId : null,
-  //       sortProp: sortType,
-  //       currentPage,
-  //     };
-  //     const queryString = qs.stringify(params, { skipNulls: true });
-
-  //     navigate(`?${queryString}`);
-  //   }
-  //   if (!window.location.search) {
-  //     dispatch(fetchApples({} as SearchAppleParams));
-  //   }
-  // }, [categoryId, sortType, currentPage]);
-
-  // React.useEffect(() => {
-  //   if (window.location.search) {
-  //     const params = qs.parse(window.location.search.substring(1)) as unknown as SearchAppleParams;
-  //     const sort = sortList.find((obj) => obj.sortProp === params.sortBy);
-
-  //     dispatch(setFilters({
-  //       searchValue: params.search,
-  //       categoryId: +params.category,
-  //       currentPage: +params.currentPage,
-  //       sort: sort || sortList[0],
-  //     }));
-  //     isSearch.current = true;
-  //   }
-  // }, []);
 
   React.useEffect(() => {
     getApples();
   }, [categoryId, sortType, searchValue, currentPage]);
 
-  const apples = items.map((obj: any) => (
-      <PizzaBlock {...obj} />
-  ));
+  const apples = items.map((obj: any) => <AppleBlock key={obj.id} {...obj} />);
   const skeletons = [...new Array(4)].map((_, index) => <Loader key={index} />);
 
   return (
     <div>
-      <div className="container"></div>
-      <div className="content__top">
+      <div className={styles.contentTop}>
         <Categories
           valueCategory={categoryId}
           onClickCategory={onChangeCategory}
         />
         <Sort />
       </div>
-      <h2 className="content__title">Купить Iphone</h2>
+      <h2 className={styles.contentTitle}>Купить Iphone</h2>
       {status === "error" ? (
-        <div className="content__error">
+        <div className={styles.contentErr}>
           <h2>Ошибка</h2>
           <p>Попробуйте позже</p>
         </div>
       ) : (
-        <div className="content__items">
+        <div className={styles.contentItems}>
           {status === "loading" ? skeletons : apples}
         </div>
       )}

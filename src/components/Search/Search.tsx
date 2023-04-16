@@ -32,7 +32,7 @@ const Search = () => {
 
   return (
     <div className={styles.root}>
-      <img className={styles.search} src="img/search.svg" alt="search" />
+      <img className={styles.search} src="img/search.png" alt="search" />
       <input
         ref={inputRef}
         value={value}
@@ -44,7 +44,7 @@ const Search = () => {
         <img
           onClick={onClickClear}
           className={styles.closeSearch}
-          src="img/close-search.svg"
+          src="img/close-cart.png"
           alt="close"
         />
       ) : (

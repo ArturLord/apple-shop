@@ -1,6 +1,6 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { fetchApples } from "../../components/services/services";
-import { AppleItems, ApplesSliceState, Status } from "./types";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { fetchApples } from '../../components/services/services';
+import { AppleItems, ApplesSliceState, Status } from './types';
 
 const initialState: ApplesSliceState = {
   items: [],
@@ -8,7 +8,7 @@ const initialState: ApplesSliceState = {
 };
 
 const applesSlice = createSlice({
-  name: "apples",
+  name: 'apples',
   initialState,
   reducers: {
     setItems(state, action: PayloadAction<AppleItems[]>) {

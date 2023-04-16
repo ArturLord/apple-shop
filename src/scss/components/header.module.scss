@@ -1,5 +1,5 @@
 .header {
-  background-color: #181B1E;
+  background-color: #181b1e;
   border-bottom: 1px solid #f6f6f6;
   padding: 40px 0;
 
@@ -31,7 +31,7 @@
       color: #dbcccc;
     }
   }
-  
+
   .headerCart {
     background-color: rgb(84, 84, 84);
     border-radius: 30px;
@@ -51,16 +51,16 @@
     span {
       color: #fb4c07;
     }
-  
+
     i,
     span {
       transition: all 0.15s ease-in-out;
     }
-  
+
     &:hover {
       opacity: 0.9;
     }
-  
+
     &:active {
       background-color: darken(#8f8f8f, 7%);
       transform: translateY(1px);
@@ -87,8 +87,8 @@
     }
   }
   @media (max-width: 1022px) {
-    .container{
-    flex-direction: column;
+    .container {
+      flex-direction: column;
     }
     .headerLogo {
       flex-direction: column;
@@ -99,6 +99,3 @@
     }
   }
 }
-
-
-

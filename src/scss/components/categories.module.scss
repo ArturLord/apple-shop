@@ -4,7 +4,6 @@
     flex-wrap: wrap;
     padding-left: 15px;
 
-
     li {
       background-color: #f9f9f9;
       padding: 12px 30px;
@@ -13,7 +12,7 @@
       font-weight: bold;
       cursor: pointer;
       transition: background-color 0.2s ease-in-out;
-      
+
       &:hover {
         background-color: darken(#f9f9f9, 3%);
       }
@@ -31,23 +30,27 @@
 
   @media (max-width: 544px) {
     ul {
-    display: grid;
-    grid-template-columns: repeat(3, 2fr);
-    padding: 0;
+      display: grid;
+      grid-template-columns: repeat(3, 2fr);
+      padding: 0;
 
-    li {
-      margin: 0;
-      padding: 5 15px;
-      font-size: 10px;
-      text-align: center;
-    }
+      li {
+        margin: 0;
+        padding: 5 15px;
+        font-size: 10px;
+        text-align: center;
+      }
     }
   }
-  @media (max-width: 396px) {
+}
+
+@media (max-width: 428px) {
+  .categories {
+    overflow: scroll;
+    width: 250px;
+
     ul {
-    display: flex;
-    flex-direction: column;
-    padding: 0;
+      width: 450px;
     }
   }
 }

@@ -121,8 +121,7 @@
           border: none;
           cursor: pointer;
           background-color: #fff;
-          transition: background-color 0.15s ease-in-out,
-            border-color 0.15s ease-in-out;
+          transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 
           &:active {
             transform: translateY(1px);
@@ -351,7 +350,6 @@
 @media (max-width: 494px) {
   .container {
     .cart {
-
       .cartTop {
         flex-direction: column;
 
@@ -359,7 +357,7 @@
           margin-bottom: 15px;
         }
       }
-      
+
       text-align: center;
       .cartItem {
         flex-direction: column;
@@ -368,8 +366,6 @@
         .cartItemLeft {
           display: block;
           width: 100%;
-
-
         }
 
         .cartItemRight {
@@ -388,7 +384,6 @@
           }
 
           .cartItemRemove {
-
             margin-left: 0;
             margin-right: 0;
             margin: 0 auto;
@@ -420,5 +415,3 @@
     }
   }
 }
-
-

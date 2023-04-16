@@ -1,25 +1,22 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import Search from "./Search/Search";
-import { selectorCart } from "../redux/cart/selectors";
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import Search from './Search/Search';
+import { selectorCart } from '../redux/cart/selectors';
 
 import styles from '../scss/components/header.module.scss';
-
 
 const Header: React.FC = () => {
   const { items, totalPrice } = useSelector(selectorCart);
   const isMounted = React.useRef(false);
+  const locationSearch = useLocation();
 
-  const totalCount = items.reduce(
-    (sum: number, item: any) => sum + item.count,
-    0
-  );
+  const totalCount = items.reduce((sum: number, item: any) => sum + item.count, 0);
 
   React.useEffect(() => {
     if (isMounted.current) {
       const json = JSON.stringify(items);
-      localStorage.setItem("cart", json);
+      localStorage.setItem('cart', json);
     }
     isMounted.current = true;
   }, [items]);
@@ -36,7 +33,7 @@ const Header: React.FC = () => {
             </div>
           </div>
         </Link>
-        <Search />
+        {locationSearch.pathname !== '/cart' && <Search />}
         <div className={styles.headerCart}>
           <Link to="/cart" className={styles.buttonCart}>
             <span>{totalPrice} ₽</span>

@@ -1,66 +1,64 @@
 .contacts {
-    width: 70%;
-    min-height: 605px;
-    margin: 0 auto;
-    padding-bottom: 30px;
+  width: 70%;
+  min-height: 605px;
+  margin: 0 auto;
+  padding-bottom: 30px;
 
-    img {
-        width: 38px;
-        height: 38px;
-        margin-right: 10px;
-    }
+  img {
+    width: 38px;
+    height: 38px;
+    margin-right: 10px;
+  }
 
-    h1 {
-        padding-top: 20px;
-        margin-bottom: 30px;
-        font-size: 33px;
-        font-weight: 400;
-    }
+  h1 {
+    padding-top: 20px;
+    margin-bottom: 30px;
+    font-size: 33px;
+    font-weight: 400;
+  }
 
-    h2 {
-        text-align: center;
-        margin-bottom: 20px;
-    }
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+
+  .contactsPhone {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
 
     p {
-        font-size: 15px;
-        margin-bottom: 10px;
+      margin: 0 10px;
     }
+  }
 
-    .contactsPhone {
-        display: flex;
-        align-items:center;
-        margin-bottom: 30px;
+  .contactsBlock {
+    display: flex;
+    margin-bottom: 60px;
 
-
-        p {
-            margin: 0 10px;
-        }
+    p {
+      margin-right: 40px;
     }
-
-    .contactsBlock {
-        display: flex;   
-        margin-bottom: 60px;
-        
-        p {
-            margin-right: 40px;
-        }
-     }
-
+  }
 }
 
 iframe {
-    display: block;
-    margin: 0 auto;
-    width: 100%;
-    height: 380px;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 380px;
 }
 
-@media (max-width: 1226px) { 
-    .contacts {
+@media (max-width: 1226px) {
+  .contacts {
     .contactsBlock {
-        display: grid;
-        grid-template-columns: repeat(2, 0fr);
+      display: grid;
+      grid-template-columns: repeat(2, 0fr);
     }
-}
+  }
 }

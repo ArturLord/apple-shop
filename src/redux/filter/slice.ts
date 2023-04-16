@@ -1,18 +1,18 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { FilterSliceState, Sort, SortPropEnum } from "./types";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { FilterSliceState, Sort, SortPropEnum } from './types';
 
 const initialState: FilterSliceState = {
-  searchValue: "",
+  searchValue: '',
   categoryId: 0,
   currentPage: 1,
   sort: {
-    name: "сначала популярные",
+    name: 'сначала популярные',
     sortProp: SortPropEnum.RATING_DESC,
   },
 };
 
 const filterSlice = createSlice({
-  name: "filter",
+  name: 'filter',
   initialState,
   reducers: {
     setSearchValue(state, action: PayloadAction<string>) {
@@ -36,7 +36,7 @@ const filterSlice = createSlice({
         state.currentPage = 1;
         state.categoryId = 0;
         state.sort = {
-          name: "сначала популярные",
+          name: 'сначала популярные',
           sortProp: SortPropEnum.RATING_DESC,
         };
       }
@@ -44,13 +44,7 @@ const filterSlice = createSlice({
   },
 });
 
-
-export const {
-  setSearchValue,
-  setCategoryId,
-  setSort,
-  setCurrentPage,
-  setFilters,
-} = filterSlice.actions;
+export const { setSearchValue, setCategoryId, setSort, setCurrentPage, setFilters } =
+  filterSlice.actions;
 
 export default filterSlice.reducer;

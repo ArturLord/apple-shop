@@ -1,6 +1,6 @@
 export type AppleItems = {
   title: string;
-  colors: string;
+  color: string;
   price: number;
   imageUrl: string;
   id: string;
@@ -10,16 +10,16 @@ export type AppleItems = {
 };
 
 export enum Status {
-  LOADING = "loading",
-  SUCCESS = "success",
-  ERROR = "error",
+  LOADING = 'loading',
+  SUCCESS = 'success',
+  ERROR = 'error',
 }
 export type SearchAppleParams = {
   category: string;
   sortBy: string;
   order: string;
   search: string;
-  currentPage: string; 
+  currentPage: string;
 };
 
 export interface ApplesSliceState {

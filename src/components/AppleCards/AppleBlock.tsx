@@ -1,18 +1,17 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { addItem} from "../../redux/cart/slice";
-import { selectorCartItemById } from "../../redux/cart/selectors";
-import { CartItem } from "../../redux/cart/types";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { addItem } from '../../redux/cart/slice';
+import { selectorCartItemById } from '../../redux/cart/selectors';
+import { CartItem } from '../../redux/cart/types';
 
 import styles from '../../scss/components/apple-block.module.scss';
-
 
 type AppleBlockProps = {
   title: string;
   price: number;
   imageUrl: string;
-  colors: string;
+  color: string;
   id: string;
   sizes: number[];
   types: number[];
@@ -24,7 +23,7 @@ const AppleBlock: React.FC<AppleBlockProps> = ({
   price,
   imageUrl,
   id,
-  colors,
+  color,
   sizes,
   types,
   rating,
@@ -34,7 +33,7 @@ const AppleBlock: React.FC<AppleBlockProps> = ({
   const [activeType] = React.useState(0);
   const [activeSize] = React.useState(0);
   const addedCount = cartItem ? cartItem.count : 0;
-  const typeNames = [colors];
+  const typeNames = [color];
 
   const onClickAdd = () => {
     const item: CartItem = {
@@ -51,18 +50,17 @@ const AppleBlock: React.FC<AppleBlockProps> = ({
 
   return (
     <div className={styles.appleBlock}>
-          <Link key={id} to={`/apples/${id}`}>
-      <img className={styles.appleBlockImg} src={imageUrl} alt="Apple" />
-      <h4 className={styles.appleBlockTitle}>{title} {sizes[0]} Gb {colors}</h4>
+      <Link key={id} to={`/apples/${id}`}>
+        <img className={styles.appleBlockImg} src={imageUrl} alt="Apple" />
+        <h4 className={styles.appleBlockTitle}>
+          {title} {sizes[0]} Gb {color}
+        </h4>
       </Link>
       <div className={styles.appleBlockBottom}>
         <div className={styles.appleBlockPrice}>{price} ₽</div>
-        <button
-          onClick={onClickAdd}
-          className={styles.appleButton}
-        >
+        <button onClick={onClickAdd} className={styles.appleButton}>
           <span>Добавить</span>
-          {addedCount > 0 ? <i>{addedCount}</i> : ""}
+          {addedCount > 0 ? <i>{addedCount}</i> : ''}
         </button>
       </div>
     </div>

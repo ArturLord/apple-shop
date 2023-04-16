@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React from 'react';
 
-import styles from "../../scss/components/footer/contacts.module.scss";
+import styles from '../../scss/components/footer/contacts.module.scss';
 
 const Contacts = () => {
   window.scrollTo(0, 0);

@@ -1,25 +1,21 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 
-import { clearItems } from "../redux/cart/slice";
-import CartItem from "../components/CartItem";
-import CartEmpty from "../components/CartEmpty";
-import { selectorCart } from "../redux/cart/selectors";
+import { clearItems } from '../redux/cart/slice';
+import CartItem from '../components/CartItem';
+import CartEmpty from '../components/CartEmpty';
+import { selectorCart } from '../redux/cart/selectors';
 
 import styles from '../scss/components/cart.module.scss';
-
 
 const Cart: React.FC = () => {
   const dispatch = useDispatch();
   const { totalPrice, items } = useSelector(selectorCart);
-  const totalCount = items.reduce(
-    (sum: number, item: any) => sum + item.count,
-    0
-  );
+  const totalCount = items.reduce((sum: number, item: any) => sum + item.count, 0);
 
   const onClickClear = () => {
-    if (window.confirm("Очистить корзину?")) {
+    if (window.confirm('Очистить корзину?')) {
       dispatch(clearItems());
     }
   };
@@ -56,10 +52,7 @@ const Cart: React.FC = () => {
             </span>
           </div>
           <div className={styles.bottomBtn}>
-            <Link
-              to="/"
-              className={styles.backBtn}
-            >
+            <Link to="/" className={styles.backBtn}>
               <img src="img/arrow.png" alt="arrow" />
               <span>Вернуться назад</span>
             </Link>

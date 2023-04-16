@@ -1,27 +1,27 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { selectorSort } from "../redux/filter/selectors";
-import { setSort } from "../redux/filter/slice";
-import { SortPropEnum } from "../redux/filter/types";
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectorSort } from '../redux/filter/selectors';
+import { setSort } from '../redux/filter/slice';
+import { SortPropEnum } from '../redux/filter/types';
 
 import styles from '../scss/components/sort.module.scss';
 
 type sortListItem = {
   name: string;
   sortProp: SortPropEnum;
-}
+};
 
 type PopupClick = MouseEvent & {
   composedPath(): Node[];
 };
 
-export const sortList: sortListItem[]  = [
-  { name: "Сначала популярные", sortProp: SortPropEnum.RATING_DESC },
-  { name: "Непопулярные", sortProp: SortPropEnum.RATING_ASC },
-  { name: "Сначала дорогие", sortProp: SortPropEnum.PRICE_DESC },
-  { name: "Сначала недорогие", sortProp: SortPropEnum.PRICE_ASC },
-  { name: "По алфавиту (А-Я)", sortProp: SortPropEnum.TITLE_ASC },
-  { name: "По алфавиту (Я-А)", sortProp: SortPropEnum.TITLE_DESC },
+export const sortList: sortListItem[] = [
+  { name: 'Сначала популярные', sortProp: SortPropEnum.RATING_DESC },
+  { name: 'Непопулярные', sortProp: SortPropEnum.RATING_ASC },
+  { name: 'Сначала дорогие', sortProp: SortPropEnum.PRICE_DESC },
+  { name: 'Сначала недорогие', sortProp: SortPropEnum.PRICE_ASC },
+  { name: 'По алфавиту (А-Я)', sortProp: SortPropEnum.TITLE_ASC },
+  { name: 'По алфавиту (Я-А)', sortProp: SortPropEnum.TITLE_DESC },
 ];
 
 const Sort = () => {
@@ -42,9 +42,9 @@ const Sort = () => {
       let path = sortRef.current && _event.composedPath().includes(sortRef.current);
       if (!path) setOpen(false);
     };
-    document.body.addEventListener("click", handleClickOutside);
+    document.body.addEventListener('click', handleClickOutside);
 
-    return () => document.body.removeEventListener("click", handleClickOutside);
+    return () => document.body.removeEventListener('click', handleClickOutside);
   }, []);
 
   return (
@@ -60,7 +60,7 @@ const Sort = () => {
               <li
                 key={i}
                 onClick={() => onClickListItem(obj)}
-                className={sort.sortProp === obj.sortProp ? styles.active : ""}
+                className={sort.sortProp === obj.sortProp ? styles.active : ''}
               >
                 {obj.name}
               </li>
@@ -68,7 +68,7 @@ const Sort = () => {
           </ul>
         </div>
       ) : (
-        ""
+        ''
       )}
     </div>
   );

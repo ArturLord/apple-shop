@@ -1,9 +1,9 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { addItem, minusItem, removeItem } from "../redux/cart/slice";
-import { CartItem } from "../redux/cart/types";
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { addItem, minusItem, removeItem } from '../redux/cart/slice';
+import { CartItem } from '../redux/cart/types';
 
-import styles from "../scss/components/cart.module.scss";
+import styles from '../scss/components/cart.module.scss';
 
 type CartItemProps = {
   title: string;
@@ -28,7 +28,7 @@ const CartItemBlock: React.FC<CartItemProps> = ({
     dispatch(
       addItem({
         id,
-      } as CartItem)
+      } as CartItem),
     );
   };
 
@@ -37,42 +37,42 @@ const CartItemBlock: React.FC<CartItemProps> = ({
   };
 
   const onClickRemove = () => {
-    if (window.confirm("Вы действительно хотите удалить товар?")) {
+    if (window.confirm('Вы действительно хотите удалить товар?')) {
       dispatch(removeItem(id));
     }
   };
 
   return (
     <div className={styles.cartItem}>
-<div className={styles.cartItemLeft}>
-<div className={styles.cartItemImg}>
-        <img src={imageUrl} alt="apple" />
+      <div className={styles.cartItemLeft}>
+        <div className={styles.cartItemImg}>
+          <img src={imageUrl} alt="apple" />
+        </div>
+        <div className={styles.cartItemInfo}>
+          <h3>
+            {title} {size} Gb {type}
+          </h3>
+        </div>
       </div>
-      <div className={styles.cartItemInfo}>
-        <h3>
-          {title} {size} Gb {type}
-        </h3>
+      <div className={styles.cartItemRight}>
+        <div className={styles.cartItemCount}>
+          <button disabled={count === 1} onClick={onClickMinus}>
+            <img src="img/minus.png" alt="minus" />
+          </button>
+          <b>{count}</b>
+          <button onClick={onClickPlus}>
+            <img src="img/plus.png" alt="plus" />
+          </button>
+        </div>
+        <div className={styles.cartItemPrice}>
+          <b>{price * count} ₽</b>
+        </div>
+        <div className={styles.cartItemRemove}>
+          <button onClick={onClickRemove}>
+            <img src="img/close-cart.png" alt="close" />
+          </button>
+        </div>
       </div>
-</div>
-     <div className={styles.cartItemRight}>
-     <div className={styles.cartItemCount}>
-        <button disabled={count === 1} onClick={onClickMinus}>
-          <img src="img/minus.png" alt="minus" />
-        </button>
-        <b>{count}</b>
-        <button onClick={onClickPlus}>
-          <img src="img/plus.png" alt="plus" />
-        </button>
-      </div>
-      <div className={styles.cartItemPrice}>
-        <b>{price * count} ₽</b>
-      </div>
-      <div className={styles.cartItemRemove}>
-        <button onClick={onClickRemove}>
-          <img src="img/close-cart.png" alt="close" />
-        </button>
-      </div>
-     </div>
     </div>
   );
 };

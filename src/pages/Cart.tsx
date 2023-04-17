@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -8,6 +9,7 @@ import CartEmpty from '../components/CartEmpty';
 import { selectorCart } from '../redux/cart/selectors';
 
 import styles from '../scss/components/cart.module.scss';
+import Loading from '../components/Loading/Loading';
 
 const Cart: React.FC = () => {
   const dispatch = useDispatch();
@@ -19,6 +21,10 @@ const Cart: React.FC = () => {
       dispatch(clearItems());
     }
   };
+
+  if (!items) {
+    return <Loading />;
+  }
 
   if (!totalPrice) {
     return <CartEmpty />;

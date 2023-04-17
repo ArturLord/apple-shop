@@ -5,10 +5,10 @@ import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../redux/cart/slice';
-// import { selectorCartItemById } from "../redux/cart/selectors";
 import { CartItem } from '../redux/cart/types';
 
 import styles from '../scss/components/page-apple.module.scss';
+import Loading from '../components/Loading/Loading';
 
 const typeNames = [
   'Золотистый',
@@ -38,12 +38,10 @@ type AppleBlockProps = {
 
 const PageApple: React.FC = () => {
   const dispatch = useDispatch();
-  // const cartItem = useSelector(selectorCartItemById(id));
-  const [activeType, setActiveType] = React.useState(-1);
-  const [activeSize, setActiveSize] = React.useState(-1);
-  // const addedCount = cartItem ? cartItem.count : 0;
   const { idx } = useParams();
   const [apple, setApple] = React.useState<AppleBlockProps>();
+  const [activeType, setActiveType] = React.useState(-1);
+  const [activeSize, setActiveSize] = React.useState(-1);
 
   React.useEffect(() => {
     async function fetchApple() {
@@ -66,15 +64,17 @@ const PageApple: React.FC = () => {
       price,
       imageUrl,
       id,
-      type: typeNames[activeType],
-      size: sizes[activeSize],
+      type: typeNames[activeType] ? typeNames[activeType] : color,
+      size: sizes[activeSize] ? sizes[activeSize] : sizes[0],
       count: 0,
     };
     dispatch(addItem(item));
   };
 
   if (!apple) {
-    return <>'Загрузка'</>;
+    return (
+      <Loading/>
+    );
   }
 
   const { title, id, imageUrl, price, types, sizes, color } = apple;
@@ -82,13 +82,13 @@ const PageApple: React.FC = () => {
   return (
     <div className={styles.wrapperApple}>
       <h1>
-        {title} {sizes[0]} Gb {color}{' '}
+        {title} {sizes[0]} Gb {color}
       </h1>
       <div className={styles.cardApple}>
         <img src={imageUrl} alt="apple" />
         <div className={styles.itemOptions}>
           <h2>
-            {title} {sizes[0]} Gb {color}{' '}
+            {title} {sizes[0]} Gb {color}
           </h2>
           <div className={styles.itemH5}>Цвет</div>
           <div className={styles.productColor}>
@@ -127,7 +127,6 @@ const PageApple: React.FC = () => {
             <Link to="/cart">
               <button onClick={onClickAdd} className={styles.productButton}>
                 <span>Купить</span>
-                {/* {addedCount > 0 ? <i>{addedCount}</i> : ""} */}
               </button>
             </Link>
           </div>

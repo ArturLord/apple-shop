@@ -13,6 +13,7 @@ import Warranty from './pages/FooterPages/Warranty';
 import Discount from './pages/FooterPages/Discount';
 import PrivacyPolicy from './pages/FooterPages/PrivacyPolicy';
 import Contacts from './pages/FooterPages/Contacts';
+import Loading from './components/Loading/Loading';
 
 //оптимизация
 const Cart = React.lazy(() => import(/* webpackChunkName: "Cart"*/ './pages/Cart'));
@@ -26,38 +27,39 @@ function App() {
       <Routes>
         <Route path="/" element={<Slider />} />
       </Routes>
-      <div className={styles.wrapper}>
-        <div className={styles.content}>
-          <Routes>
-            <Route path="/" element={<Home />} />
+      <Suspense fallback={<Loading />}>
+        <div className={styles.wrapper}>
+          <div className={styles.content}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route
+                path="/apples/:idx"
+                element={
+                  <Suspense fallback={<Loading />}>
+                    <PageApple />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="/cart"
+                element={
+                  <Suspense fallback={<Loading />}>
+                    <Cart />
+                  </Suspense>
+                }
+              />
 
-            <Route
-              path="/apples/:idx"
-              element={
-                <Suspense fallback={<div>Идет загрузка</div>}>
-                  <PageApple />
-                </Suspense>
-              }
-            />
-            <Route
-              path="/cart"
-              element={
-                <Suspense fallback={<div>Идет загрузка корзины</div>}>
-                  <Cart />
-                </Suspense>
-              }
-            />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+              <Route path="/shippingandpayment" element={<ShippingPayment />} />
+              <Route path="/warranty" element={<Warranty />} />
+              <Route path="/discount" element={<Discount />} />
+              <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+              <Route path="/contacts" element={<Contacts />} />
+
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </div>
         </div>
-        <Routes>
-          <Route path="/shippingandpayment" element={<ShippingPayment />} />
-          <Route path="/warranty" element={<Warranty />} />
-          <Route path="/discount" element={<Discount />} />
-          <Route path="/privacypolicy" element={<PrivacyPolicy />} />
-          <Route path="/contacts" element={<Contacts />} />
-        </Routes>
-      </div>
+      </Suspense>
       <Footer />
     </>
   );

@@ -25,8 +25,6 @@ const AppleBlock: React.FC<AppleBlockProps> = ({
   id,
   color,
   sizes,
-  types,
-  rating,
 }) => {
   const dispatch = useDispatch();
   const cartItem = useSelector(selectorCartItemById(id));

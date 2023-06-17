@@ -1,6 +1,6 @@
 import styles from '../../scss/components/footer/privacypolicy.module.scss';
 
-const PrivacyPolicy = () => {
+const PrivacyPolicy: React.FC = () => {
   window.scrollTo(0, 0);
   return (
     <div className={styles.privacyPolicy}>

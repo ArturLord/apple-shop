@@ -1,6 +1,6 @@
 import styles from '../../scss/components/footer/shippingPayment.module.scss';
 
-const ShippingPayment = () => {
+const ShippingPayment: React.FC = () => {
   window.scrollTo(0, 0);
   return (
     <div className={styles.contentFooter}>

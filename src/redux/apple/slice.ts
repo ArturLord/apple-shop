@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { fetchApples } from '../../components/services/services';
+
+import { fetchApples } from '../../services/services';
 import { AppleItems, ApplesSliceState, Status } from './types';
 
 const initialState: ApplesSliceState = {

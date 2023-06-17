@@ -1,6 +1,6 @@
 import styles from '../../scss/components/footer/discount.module.scss';
 
-const Discount = () => {
+const Discount: React.FC = () => {
   window.scrollTo(0, 0);
   return (
     <>

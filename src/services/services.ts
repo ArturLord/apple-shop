@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { AppleItems, SearchAppleParams } from '../../redux/apple/types';
 import axios from 'axios';
+
+import { AppleItems, SearchAppleParams } from '../redux/apple/types';
 
 export const fetchApples = createAsyncThunk(
   'apples/fetchApplesStatus',

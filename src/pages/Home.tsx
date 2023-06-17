@@ -7,10 +7,11 @@ import Sort from '../components/Sort';
 import AppleBlock from '../components/AppleCards/AppleBlock';
 import Loader from '../components/Loader/Loader';
 import Pagination from '../components/Pagination/Pagination';
+
 import { useAppDispatch } from '../redux/store';
 import { setCategoryId, setCurrentPage } from '../redux/filter/slice';
 import { selectorFilter } from '../redux/filter/selectors';
-import { fetchApples } from '../components/services/services';
+import { fetchApples } from '../services/services';
 import { selectorApples } from '../redux/apple/selectors';
 
 import styles from '../scss/app.module.scss';

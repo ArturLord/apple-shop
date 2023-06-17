@@ -3,7 +3,7 @@ import ReactLoading from 'react-loading';
 
 import styles from './Loading.module.scss'
  
-const Loading = () => (
+const Loading: React.FC = () => (
     <ReactLoading
         className={styles.loading}
         type={'bubbles'}

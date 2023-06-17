@@ -7,8 +7,9 @@ import { useDispatch } from 'react-redux';
 import { addItem } from '../redux/cart/slice';
 import { CartItem } from '../redux/cart/types';
 
-import styles from '../scss/components/page-apple.module.scss';
 import Loading from '../components/Loading/Loading';
+
+import styles from '../scss/components/page-apple.module.scss';
 
 const typeNames = [
   'Золотистый',

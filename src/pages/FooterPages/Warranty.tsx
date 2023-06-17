@@ -1,6 +1,6 @@
 import styles from '../../scss/components/footer/warranty.module.scss';
 
-const Warranty = () => {
+const Warranty: React.FC = () => {
   window.scrollTo(0, 0);
   return (
     <>

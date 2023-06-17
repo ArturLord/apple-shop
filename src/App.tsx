@@ -3,17 +3,16 @@ import { Routes, Route } from 'react-router-dom';
 
 import Footer from './components/Footer/Footer';
 import Header from './components/Header';
-import Slider from './components/Slider/Slider';
 import Home from './pages/Home';
 import ShippingPayment from './pages/FooterPages/ShippingPayment';
-
-import styles from './scss/app.module.scss';
-
 import Warranty from './pages/FooterPages/Warranty';
 import Discount from './pages/FooterPages/Discount';
 import PrivacyPolicy from './pages/FooterPages/PrivacyPolicy';
 import Contacts from './pages/FooterPages/Contacts';
 import Loading from './components/Loading/Loading';
+import Slider from './components/Slider/Slider';
+
+import styles from './scss/app.module.scss';
 
 //оптимизация
 const Cart = React.lazy(() => import(/* webpackChunkName: "Cart"*/ './pages/Cart'));

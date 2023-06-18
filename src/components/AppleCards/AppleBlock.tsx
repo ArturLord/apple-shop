@@ -50,7 +50,7 @@ const AppleBlock: React.FC<AppleBlockProps> = ({
   return (
     <div className={styles.appleBlock}>
       <Link key={id} to={`/apples/${id}`}>
-        <img className={styles.appleBlockImg} src={imageUrl} alt="Apple" />
+        <img className={styles.appleBlockImg} src={require(imageUrl)} alt="Apple" />
         <h4 className={styles.appleBlockTitle}>
           {title} {sizes[0]} Gb {color}
         </h4>

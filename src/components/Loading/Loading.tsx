@@ -7,7 +7,7 @@ const Loading: React.FC = () => (
     <ReactLoading
         className={styles.loading}
         type={'bubbles'}
-        color={'#232323'}
+        color={'#2b2a2a'}
         height={70}
         width={150}
       />

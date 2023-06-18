@@ -1,6 +1,4 @@
 Стек технологий:
-<<<<<<< .merge_file_a06584
-
 ReactJS
 Машинописный текст
 Набор инструментов Redux
@@ -12,16 +10,3 @@ ReactJS
 Красивее
 CSS-модули/SCSS
 Lodash.Разоблачать
-=======
-- ReactJS
-- TypeScript
-- Redux Toolkit 
-- React Pagination
-- React Router v6
-- React Hooks
-- React Content Loader
-- Axios
-- Prettier
-- CSS-Modules/SCSS
-- Lodash.Debounce
->>>>>>> .merge_file_a06312

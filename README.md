@@ -1,3 +1,5 @@
+***AppleShop***
+
 Стек технологий:
 - ReactJS
 - TypeScript

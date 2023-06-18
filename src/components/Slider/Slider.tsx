@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './Slider.module.scss';
+import styles from './slider.module.scss';
 
 const images = ['/img/slides/slide1.jpg', '/img/slides/slide2.jpg', '/img/slides/slide3.jpg'];
 

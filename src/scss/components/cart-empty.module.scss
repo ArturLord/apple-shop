@@ -1,7 +1,7 @@
 .cartEmpty {
   margin: 0 auto;
   padding: 20px 0;
-  width: 70%;
+  width: 77%;
   text-align: center;
 
   h2 {
@@ -67,8 +67,17 @@
 
 @media (max-width: 420px) {
   .cartEmpty {
+
+    h2 {
+      font-size: 26px;
+    }
+
+    p {
+      font-size: 14px;
+    }
     img {
       width: 170px;
+      margin: 25px auto 50px;
     }
   }
 

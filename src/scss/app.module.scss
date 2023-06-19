@@ -108,7 +108,10 @@ body {
 }
 
 @media (max-width: 396px) {
-  .contentTop {
+  .wrapper {
+    width: calc(115vw - 100px);
+    min-height: 400px;
+
     .categories {
       .sort {
         .sortLabel {
@@ -117,6 +120,14 @@ body {
           }
         }
       }
+    }
+  }
+
+  .content {
+    .contentTitle {
+      margin: 10px 15px 30px 15px;
+      font-size: 30px;
+      text-align: center;
     }
   }
 }

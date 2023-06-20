@@ -35,14 +35,14 @@
   
   @media only screen and (min-width: 769px) and (max-width: 1024px) {
     .slider {
-      height: calc(70vh - 100px);
-      max-height: 300px;
+      height: calc(75vh - 100px);
+      max-height: 400px;
     }
   }
 
   @media only screen and (max-width: 768px) {
     .slider {
-      height: calc(70vh - 100px);
-      max-height: 220px;
+      height: calc(60vh - 100px);
+      max-height: 180px;
     }
   }

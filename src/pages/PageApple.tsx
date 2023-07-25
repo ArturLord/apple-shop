@@ -43,6 +43,7 @@ const PageApple: React.FC = () => {
   const [apple, setApple] = React.useState<AppleBlockProps>();
   const [activeType, setActiveType] = React.useState(-1);
   const [activeSize, setActiveSize] = React.useState(-1);
+const isMobile = window.innerWidth > 767;
 
   React.useEffect(() => {
     async function fetchApple() {
@@ -88,9 +89,9 @@ const PageApple: React.FC = () => {
       <div className={styles.cardApple}>
         <img src={imageUrl} alt="apple" />
         <div className={styles.itemOptions}>
-          <h2>
+        {isMobile &&  <h2>
             {title} {sizes[0]} Gb {color}
-          </h2>
+          </h2>}
           <div className={styles.itemH5}>Цвет</div>
           <div className={styles.productColor}>
             <ul>
